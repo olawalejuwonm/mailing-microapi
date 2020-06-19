@@ -3,6 +3,7 @@ const morgan = require('morgan'); //logger
 const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config()
+const port = 3000;
 
 const app = express();
 
@@ -25,8 +26,9 @@ app.get('/v1/documentation', (req, res) => {
   res.sendFile(path.join(__dirname+'/doc.json'));
 });
 
-port = process.env.PORT
+
+// port = process.env.PORT
+
 app.listen(port, function () {
   console.log(`Listening on port ${port}...`)
 })
-

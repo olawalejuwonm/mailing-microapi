@@ -14,7 +14,8 @@ exports.createUser = (req,res,next) => {
     if (!name || !email || !organisation) {
         res.status(400).send({
           status: 'failed',
-          data: {message: 'Add name, email and organisation.'}
+          data: {message:
+             'Add name, email and organisation in json format. This ia an example -> {"name":"olawale micheal juwon", "email": "olawalejuwon@gmail.com", "organisation":"HNG"}'}
         })
         return
       }
@@ -33,7 +34,10 @@ exports.createUser = (req,res,next) => {
         if(createAccount(email,name,organisation,user_id,token)){
             res.status(201).send({
                 status: 'success',
-                data: {message: 'account created!', account_id:user_id,access_token:token}
+                data: {message: 'account created! Request Body Extracted',
+                 name: name, email: email, organisation: organisation,
+                 account_id:user_id,access_token:token
+            }
               })
               return
         }else{
