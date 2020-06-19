@@ -11,4 +11,4 @@ GET - /v1/documentation
 
 # Installation
 Clone to your local server
-Run npm install && npm run dev
+Run npm install && npm start
